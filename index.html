@@ -42,7 +42,7 @@ function callService() {
         $('#loading').hide()
       },
       error: function(){
-        alert("发生错误，请重试");
+        alert("请求量大，请稍后重试");
         $('#process').prop('disabled', false);
         $('#loading').hide()
       }
