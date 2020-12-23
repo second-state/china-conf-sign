@@ -20,8 +20,11 @@ function callService() {
   $('#process').prop('disabled', true);
   
   var formData = new FormData();
-  if (clientName.length === 2) {
-    clientName = clientName.split('').join(' ')
+  switch (clientName.length) {
+    case 1:
+      clientName = ' ' + clientName + ' '
+    case 2:
+      clientName = clientName.split('').join(' ')
   }
   formData.append('input_1', clientName);
   formData.append('fetch_input_2', 'https://second-state.github.io/china-conf-sign/template.png');
@@ -42,7 +45,7 @@ function callService() {
         $('#loading').hide()
       },
       error: function(){
-        alert("请求量大，请稍后重试");
+        alert("服务繁忙，请稍后重试");
         $('#process').prop('disabled', false);
         $('#loading').hide()
       }
