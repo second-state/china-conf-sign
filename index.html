@@ -20,19 +20,11 @@ function callService() {
   $('#process').prop('disabled', true);
   
   var formData = new FormData();
-  switch (clientName.length) {
-    case 1:
-      clientName = '　' + clientName + '　'
-      break;
-    case 2:
-      clientName = clientName.split('').join(' ');
-      break;
-  }
   formData.append('input_1', clientName);
   formData.append('fetch_input_2', 'https://second-state.github.io/china-conf-sign/template.png');
 
   $.ajax({
-      url: "https://rpc.ssvm.secondstate.io:8081/api/multipart/run/257/watermark/bytes",
+      url: "https://rpc.ssvm.secondstate.io:8081/api/multipart/run/261/watermark/bytes",
       type: "post",
       data : formData,
       contentType: false,
