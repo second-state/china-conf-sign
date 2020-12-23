@@ -10,11 +10,16 @@
 
     <script>
 function callService() {
+  var clientName = $('#input_1').val();
+  if (!clientName) {
+    alert('请输入名字')
+    return
+  }
+
   $('#loading').show()
   $('#process').prop('disabled', true);
-
+  
   var formData = new FormData();
-  var clientName = $('#input_1').val();
   if (clientName.length === 2) {
     clientName = clientName.split('').join(' ')
   }
@@ -50,7 +55,7 @@ function callService() {
   
   <body>
     <div class="container">
-      <h3 style="margin: 20px 0;">感谢支持 Rust China Conf</h3>
+      <h3 class="my-4">感谢支持 Rust China Conf</h3>
       <p class="lead">这个自定义邀请海报程序使用 <a href="https://www.rust-lang.org/">Rust</a> 编写，并部署在 <a href="https://www.secondstate.io/faas/">Second State FaaS</a> 平台，底层由 <a href="https://webassembly.org/">WebAssembly</a> 虚拟机 <a href="https://github.com/second-state/ssvm">SSVM</a> 驱动。</p>
 
       <form id="draw" enctype="multipart/form-data"></form>
